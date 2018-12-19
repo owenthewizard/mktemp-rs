@@ -2,7 +2,7 @@
 
 A thin wrapper around `libc`'s `mkstemps` and `mkdtemp`.
 
-## Quick Start
+## Quick Start ([Documentation](https://docs.rs/mktemp-rs))
 
 `Cargo.toml`:
 ```diff
