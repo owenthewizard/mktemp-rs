@@ -1,0 +1,20 @@
+[package]
+name = "mktemp-rs"
+version = "0.1.0"
+authors = ["Owen Walpole <owenthewizard@hotmail.com>"]
+description = "A thin wrapper around libc's mkstemps and mkdtemp"
+license = "MIT OR Apache-2.0"
+edition = "2018"
+repository = "https://github.com/owenthewizard/mktemp-rs"
+readme = "README.md"
+keywords = ["mkstemp", "mkstemps", "temp", "tempfile", "tempdir", "temporary", "mktemp"]
+
+[dependencies]
+libc = "0.2.45"
+
+[lib]
+name = "mktemp"
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
