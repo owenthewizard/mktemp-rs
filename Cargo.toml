@@ -7,7 +7,7 @@ license = "MIT OR Apache-2.0"
 edition = "2018"
 repository = "https://github.com/owenthewizard/mktemp-rs"
 readme = "README.md"
-keywords = ["mkstemp", "mkstemps", "temp", "tempfile", "tempdir", "temporary", "mktemp"]
+keywords = ["mkstemp", "temp", "tempfile", "tempdir", "mktemp"]
 
 [dependencies]
 libc = "0.2.45"
