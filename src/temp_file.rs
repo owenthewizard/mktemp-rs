@@ -22,7 +22,6 @@ impl TempFile {
     ///
     /// Any of the following will produce errors:
     /// * A suffix with > `std::i32::MAX` chars
-    /// * An OS temporary directory that contains non-UTF-8 characters
     /// * Failure to parse a CString from the given data
     /// * `mkstemps` returning an invalid file descriptor
     ///
@@ -47,20 +46,12 @@ impl TempFile {
         }
         debug!("validated suffix len");
 
-        // validate temp dir
-        let tmp_dir = match env::temp_dir().to_str() {
-            Some(s) => s.to_string(),
-            None => {
-                return Err(Error::new(
-                    ErrorKind::Other,
-                    "Temporary directory path must be valid UTF-8",
-                ))
-            }
-        };
-        debug!("found temp dir: {}", &tmp_dir);
+        // get temporary directory
+        let tmp_dir = env::temp_dir();
+        debug!("found temp dir: {:?}", tmp_dir);
 
         // CString --> &c_char
-        let ptr = match CString::new(format!("{}/{}XXXXXX{}", tmp_dir, prefix, suffix)) {
+        let ptr = match CString::new(format!("{}/{}XXXXXX{}", tmp_dir.display(), prefix, suffix)) {
             Ok(p) => p.into_raw(),
             Err(e) => return Err(Error::new(ErrorKind::Other, e)),
         };

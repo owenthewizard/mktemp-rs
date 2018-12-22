@@ -16,7 +16,6 @@ impl TempDir {
     /// # Errors
     ///
     /// Any of the following will produce errors:
-    /// * An OS temporary directory that contain non-UTF-8 characters
     /// * Failure to parse a CString from the given data
     /// * `mkdtemp` returning NULL
     ///
@@ -31,20 +30,12 @@ impl TempDir {
     /// ```
     pub fn new(prefix: &str) -> Result<TempDir> {
         debug!("init new TempDir");
-        // validate temp dir
-        let tmp_dir = match env::temp_dir().to_str() {
-            Some(s) => s.to_string(),
-            None => {
-                return Err(Error::new(
-                    ErrorKind::Other,
-                    "Temporary directory path must be valid UTF-8",
-                ))
-            }
-        };
-        debug!("found temp dir: {}", &tmp_dir);
+        // get temporary directory
+        let tmp_dir = env::temp_dir();
+        debug!("found temp dir: {:?}", tmp_dir);
 
         // CString --> &c_char
-        let ptr = match CString::new(format!("{}/{}XXXXXX", tmp_dir, prefix)) {
+        let ptr = match CString::new(format!("{}/{}XXXXXX", tmp_dir.display(), prefix)) {
             Ok(p) => p.into_raw(),
             Err(e) => return Err(Error::new(ErrorKind::Other, e)),
         };
