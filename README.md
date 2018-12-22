@@ -39,10 +39,6 @@ fn readme() {
 
 ### Tests
 
-[`dir_invalid_utf8`](tests/dir_invalid_utf8.rs) tests that TempDir::new() panics when the OS temporary directory path is not valid UTF-8.
-
-[`file_invalid_utf8`](tests/file_invalid_utf8.rs) tests that TempFile::new() panics when the OS temporary directory path is not valid UTF-8.
-
 [`readme`](tests/readme.rs) tests the example in this readme.
 
 [`temp_dir`](tests/temp_dir.rs) tests various TempDir functions.

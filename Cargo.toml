@@ -1,6 +1,6 @@
 [package]
 name = "mktemp-rs"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Owen Walpole <owenthewizard@hotmail.com>"]
 description = "A thin wrapper around libc's mkstemps and mkdtemp"
 license = "MIT OR Apache-2.0"
