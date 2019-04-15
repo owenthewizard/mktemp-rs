@@ -1,4 +1,6 @@
 # mktemp-rs
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fowenthewizard%2Fmktemp-rs.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fowenthewizard%2Fmktemp-rs?ref=badge_shield)
+
 
 A thin wrapper around `libc`'s `mkstemps` and `mkdtemp`.
 
@@ -70,6 +72,9 @@ See [the list of contributors](https://github.com/owenthewizard/mktemp-rs/contri
 `mktemp-rs` is primarily distributed under the terms of both the MIT license and the Apache License (Version 2.0).
 
 See [LICENSE-APACHE](LICENSE-APACHE.md) and [LICENSE-MIT](LICENSE-MIT.md) for details.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fowenthewizard%2Fmktemp-rs.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fowenthewizard%2Fmktemp-rs?ref=badge_large)
 
 ## Acknowledgments
 
